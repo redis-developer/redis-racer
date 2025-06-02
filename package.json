@@ -1,0 +1,25 @@
+{
+  "name": "leaderboard-service",
+  "version": "0.1.0",
+  "main": "server/index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon -w server/ .",
+    "format": "prettier . --write",
+    "start": "node .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "redis": "^4.7.0",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "prettier": "^3.4.2",
+    "supertest": "^7.0.0",
+    "vitest": "^2.1.8"
+  }
+}

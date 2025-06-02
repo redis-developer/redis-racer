@@ -1,0 +1,35 @@
+name: "game-backend"
+services:
+  redis:
+    container_name: redis
+    image: "redis:latest"
+    ports:
+      - 6379:6379
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - redis-data:/data
+
+  leaderboard:
+    container_name: leaderboard
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+      target: dev
+    command: npm run dev
+    ports:
+      - 3000:3000
+    env_file:
+      - ./.env
+      - ./.env.docker
+    volumes:
+      - ./server:/app/server
+      - /app/node_modules
+    # restart: always
+    depends_on:
+      - redis
+
+volumes:
+  redis-data:
