@@ -1,4 +1,4 @@
-This is a [Redis](https://redis.io/) starter template for JS and [Node](https://nodejs.org/) using:
+This is a game backend starter project creating real-time leaderboards using:
 
 - [Redis Cloud](https://redis.io/try-free/)
 - [Express](https://expressjs.com/)
@@ -63,7 +63,7 @@ To connect to a Redis Cloud database, log into the console and find the followin
 1. The `public endpoint` (looks like `redis-#####.c###.us-east-1-#.ec2.redns.redis-cloud.com:#####`)
 1. Your `username` (`default` is the default username, otherwise find the one you setup)
 1. Your `password` (either setup through Data Access Control, or available in the `Security` section of the database
-   page.
+   page).
 
 Combine the above values into a connection string and put it in your `.env` and `.env.docker` accordingly. It should
 look something like the following:

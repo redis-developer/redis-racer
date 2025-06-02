@@ -29,7 +29,7 @@ import getClient from "./redis.js";
  * @returns {Promise<Status>}
  */
 
-export async function zAdd(key, score, member) {
+export async function addLeaderboardEntry(key, score, member) {
     const redis = await getClient();
     const date = new Date();
 
@@ -114,7 +114,7 @@ router.post(
   handler(async (req) => {
     const { key, score, member } = req.body;
 
-    return zAdd(key, score, member);
+    return addLeaderboardEntry(key, score, member);
   }),
 );
 
