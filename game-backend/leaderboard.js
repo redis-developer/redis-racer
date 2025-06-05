@@ -30,17 +30,16 @@ import getClient from "./redis.js";
  */
 
 export async function addLeaderboardEntry(key, score, member) {
-    const redis = await getClient();
-    const date = new Date();
+    // const redis = await getClient();
+    // const date = new Date();
 
-    const result = await redis.zAdd(key,[{ value: member.toUpperCase() + "-" + date.toISOString(), score: score }]);
+    // const result = await redis.zAdd(key,[{ value: member.toUpperCase() + "-" + date.toISOString(), score: score }]);
 
-
-    if (result > 0) {
-        return { status: 200, message: "ZADD success, added new leaderboard entry."};
-      } else {
-        return { status: 400, message: "ZADD failed..." };
-      }
+    // if (result > 0) {
+    //     return { status: 200, message: "ZADD success, added new leaderboard entry."};
+    //   } else {
+    //     return { status: 400, message: "ZADD failed..." };
+    //   }
 }
 
 
@@ -52,17 +51,15 @@ export async function addLeaderboardEntry(key, score, member) {
  * @returns {Promise<Leaderboard>}
  */
 export async function getLeaderboard(key, count) {
-  const redis = await getClient();
+  // const redis = await getClient();
 
-  const result = await redis.zRangeWithScores(key, 0, count-1, { REV: 'true' });
+  // const result = await redis.zRangeWithScores(key, 0, count-1, { REV: 'true' });
 
-  const leaderboard = {
-    "leaderboard": result
-  }
+  // const leaderboard = {
+  //   "leaderboard": result
+  // };
 
-
-
-  return leaderboard;
+  // return leaderboard;
 }
 
 
