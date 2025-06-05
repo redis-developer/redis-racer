@@ -14,9 +14,15 @@ import getClient from "./redis.js";
  * @property {string} value
  * @property {number} score
  *
- * A leaderboard object
+ * 
+ * Leaderboard entries object
+ * @typedef {Object} LeaderboardEntries
+ * @property {LeaderboardEntry[]} entries
+ * 
+ * 
+ * Leaderboard object
  * @typedef {Object} Leaderboard
- * @property {LeaderboardEntry[]} leaderboard
+ * @property {LeaderboardEntries} leaderboard 
  */
 
 
@@ -30,16 +36,17 @@ import getClient from "./redis.js";
  */
 
 export async function addLeaderboardEntry(key, score, member) {
-    // const redis = await getClient();
-    // const date = new Date();
+  const redis = await getClient();
+  const date = new Date();
 
-    // const result = await redis.zAdd(key,[{ value: member.toUpperCase() + "-" + date.toISOString(), score: score }]);
+  //ZADD key score member, where member is a string that includes the member name and the date
+  const result = await redis.zAdd(key,[{ value: member.toUpperCase() + "-" + date.toISOString(), score: score }]);
 
-    // if (result > 0) {
-    //     return { status: 200, message: "ZADD success, added new leaderboard entry."};
-    //   } else {
-    //     return { status: 400, message: "ZADD failed..." };
-    //   }
+  if (result > 0) {
+    return { status: 200, message: "ZADD success, added new leaderboard entry."};
+  } else {
+    return { status: 400, message: "ZADD failed..." };
+  }  
 }
 
 
@@ -48,18 +55,23 @@ export async function addLeaderboardEntry(key, score, member) {
  * 
  * @param {string} key 
  * @param {number} count 
- * @returns {Promise<Leaderboard>}
+ * @returns {Promise<Leaderboard | Status>}
  */
 export async function getLeaderboard(key, count) {
-  // const redis = await getClient();
+  const redis = await getClient();
 
-  // const result = await redis.zRangeWithScores(key, 0, count-1, { REV: 'true' });
+  //ZRANGE key start stop [WITHSCORES] [REV]
+  const result = await redis.zRangeWithScores(key, 0, count-1, { REV: 'true' });
 
-  // const leaderboard = {
-  //   "leaderboard": result
-  // };
+  if (result.length === 0) {
+    return { status: 404, message: "No leaderboard entries found." };
+  }
 
-  // return leaderboard;
+  const leaderboard = {
+    "leaderboard": result
+  };
+
+  return leaderboard;
 }
 
 

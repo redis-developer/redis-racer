@@ -1,7 +1,7 @@
 {
   "name": "leaderboard-service",
   "version": "0.1.0",
-  "main": "server/index.js",
+  "main": "game-backend/index.js",
   "type": "module",
   "private": true,
   "scripts": {
