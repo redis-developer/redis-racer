@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "nodemon -w server/ .",
+    "dev": "nodemon -w game-backend/ .",
     "format": "prettier . --write",
     "start": "node .",
     "test": "vitest run"
