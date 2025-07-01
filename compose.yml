@@ -25,7 +25,7 @@ services:
       - ./.env
       - ./.env.docker
     volumes:
-      - ./server:/app/server
+      - ./game-backend:/app/server
       - /app/node_modules
     # restart: always
     depends_on:
