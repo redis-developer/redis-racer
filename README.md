@@ -1,7 +1,10 @@
-This is a game backend starter project creating real-time leaderboards using:
+This is a game backend starter project for creating real-time leaderboards using:
 
-- [Redis Cloud](https://redis.io/try-free/)
+- [Unreal Engine 5](https://www.unrealengine.com)
+- [Redis](https://redis.io/try-free/)
 - [Express](https://expressjs.com/)
+
+Watch the [tutorial](https://www.youtube.com/watch?v=2UhkGLJpM_s) on YouTube!
 
 ## Setup Game Backend with Local Redis
 
