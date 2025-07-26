@@ -6,15 +6,13 @@ This is a game backend starter project for creating real-time leaderboards using
 
 Watch the [tutorial](https://www.youtube.com/watch?v=2UhkGLJpM_s) on YouTube!
 
-## Setup Game Backend with Local Redis
+## Create Environment Variables
 
 Copy and edit the `.env` file:
 
 ```bash
 cp .env.example .env
 ```
-
-Your `.env` file should contain the connection string you copied from Redis Cloud.
 
 Your `.env.docker` file will look similar to `.env`, but should use the appropriate docker internal URLs. Here is
 an example:
@@ -23,12 +21,14 @@ an example:
 REDIS_URL="redis://redis:6379"
 ```
 
-Next, spin up docker containers:
+## Run Game Backend Locally
+
+Spin up docker containers:
 
 ```bash
 docker compose up -d
 ```
-## Run Only Game Backend Locally
+
 
 Alternatively, you can run the development server outside of docker:
 
