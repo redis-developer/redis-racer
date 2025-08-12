@@ -79,8 +79,7 @@ You should have a server running on `http://localhost:<port>` where the port is 
    2. From the RedisRacerGameMode, bind event to event RaceEnd  
    3. Create a custom event called RaceEnd  
    4. Promote win, score, and initials to variables.  
-   5. Call the AddLeaderboardEntry event  
-   6. Followed by the GetLeaderboard event
+   5. Call the AddLeaderboardEntry event.
 
 ![EventBeginPlay](Resources/EventBeginPlay.PNG)
 
@@ -102,6 +101,7 @@ You should have a server running on `http://localhost:<port>` where the port is 
    7. From the return value of the ConstructJsonRequest find BindEventToOnRequestComplete and BindEventToOnRequestFail  
    8. We will create one custom event for both of these events.  
       1. GetResponseContentAsString and connect it to a PrintString
+      1. Then call the GetLeaderboard event. 
 
 ![AddLeaderboardEntry](Resources/AddLeaderboardEntry.PNG)
 

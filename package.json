@@ -5,13 +5,13 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "nodemon -w game-backend/ .",
+    "dev": "nodemon -w game-backend/index.js",
     "format": "prettier . --write",
-    "start": "node .",
+    "start": "node game-backend/index.js",
     "test": "vitest run"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.6.1",
     "express": "^4.21.2",
     "redis": "^4.7.0",
     "uuid": "^11.0.3"

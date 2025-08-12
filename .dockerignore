@@ -1,4 +1,6 @@
 node_modules/
+RedisRacer/
+Resources/
 .env
 .env.*
 .gitignore
