@@ -1,5 +1,5 @@
 FROM node:latest AS base
-WORKDIR /app
+WORKDIR /
 
 FROM base AS deps
 COPY package-lock.json ./package-lock.json
@@ -12,12 +12,12 @@ COPY package.json ./package.json
 RUN npm install --omit=dev
 
 FROM base AS dev
-COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /node_modules ./node_modules
 COPY . .
 
 FROM base AS runner
 ENV NODE_ENV production
-COPY --from=prod-deps /app/node_modules ./node_modules
+COPY --from=prod-deps /node_modules ./node_modules
 COPY . .
 
 ENV PORT 3000
