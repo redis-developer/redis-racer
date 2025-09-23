@@ -13,8 +13,7 @@
   "dependencies": {
     "dotenv": "^16.6.1",
     "express": "^4.21.2",
-    "redis": "^4.7.0",
-    "uuid": "^11.0.3"
+    "redis": "^4.7.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9",
